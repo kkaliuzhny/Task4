@@ -1,0 +1,42 @@
+﻿@model task4.Models.UserLoginModel
+<!DOCTYPE html>
+<html>
+<head>
+	<h1 class="text-center mb-4 mt-4">Login/Register</h1>
+</head>
+<body>
+	
+	<div class="mx-auto p-4 border rounded bg-light" style="max-width: 400px;">
+
+	<form asp-controller="Access" asp-action="Login" method="post">
+		
+		<div class="form-group mb-3">
+			<label asp-for="Email">Email address</label>
+			<input class="form-control mt-1" type="email" placeholder="Email" asp-for="Email" required size="5" required />
+			</div>
+		<div class="form-group mb-3">
+			<label asp-for="Password">Password</label>
+			<input class="form-control mt-1" type="password" placeholder="Password" asp-for="Password" required size="5"  required />
+		</div>
+
+		<div class="form-group mb-3 text-center">
+			<button class="btn btn-primary w-100" type="submit">Login</button>
+			@if (ViewData["ValidateMessage"] != null)
+			{
+			    <div class="alert alert-danger mt-3" role="alert">
+				  @ViewData["ValidateMessage"]
+				</div>
+			}
+		</div>
+
+
+
+	</form>
+
+	<div class="text-center">
+		<a class="btn btn-primary w-100" asp-controller="Registration" asp-action="Register">Register</a>
+	</div>
+	</div>
+	
+</body>
+</html>
